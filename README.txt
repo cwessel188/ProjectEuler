@@ -1,0 +1,1 @@
+These are some of my solutions to Project Euler problems, which demonstrate my coding and problem solving abilities.
