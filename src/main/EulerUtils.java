@@ -1,3 +1,4 @@
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -115,5 +116,48 @@ public class EulerUtils {
 			 primeFactors.add(p);
 			 multiFactorCheck(n / p, p, primeFactors);
 		 }
+	}
+
+	/**
+	 * Counts the digits of number n
+	 *
+	 * @return the digits in n
+	 */
+	public static int countDigits(int n) {
+		int count = 0;
+		// make n positive
+		if (n < 0) {
+			n *= -1;
+		}
+
+		while (n > 0) {
+			count++;
+			n /= 10;
+		}
+
+		return count;
+	}
+
+
+	public static List<BigInteger> generateFibosUpToMax(BigInteger max) {
+		List<BigInteger> returnValues = new ArrayList<>();
+		returnValues.add(BigInteger.ONE);
+		returnValues.add(BigInteger.ONE);
+
+
+		BigInteger a = BigInteger.ONE;
+		BigInteger b = BigInteger.ONE;
+		BigInteger temp;
+
+		while (a.add(b).compareTo(max) <= 0) {
+			// add a+b to list
+			returnValues.add(a.add(b));
+			temp = b;
+			b = a.add(b);
+			a = temp;
+		}
+
+
+		return returnValues;
 	}
 }

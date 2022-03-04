@@ -1,5 +1,7 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +17,43 @@ class EulerUtilsTest {
         expected.add(5);
         expected.add(7);
 
-        // empty list for n = 1
+
         assertEquals(expected, EulerUtils.generatePrimes(10));
+    }
+
+    @Test
+    void countDigits1111() {
+        assertEquals(4, EulerUtils.countDigits(1111));
+        assertEquals(4, EulerUtils.countDigits(-1111));
+    }
+
+    @Test
+    void countDigitsEdgesCases() {
+        assertEquals(0, EulerUtils.countDigits(0));
+        assertEquals(1, EulerUtils.countDigits(-1));
+        assertEquals(10, EulerUtils.countDigits(Integer.MAX_VALUE));
+    }
+
+    @Test
+    void generateFibosUpToMax5() {
+        List<BigInteger> list = new ArrayList<>();
+        list.add(BigInteger.ONE);
+        list.add(BigInteger.ONE);
+        list.add(BigInteger.TWO);
+        list.add(new BigInteger("3"));
+        list.add(new BigInteger("5"));
+        assertEquals(list, EulerUtils.generateFibosUpToMax(new BigInteger("5")));
+    }
+
+    @Test
+    @Disabled
+    void generateFibosUpToMax100000000000000000000() {
+        List<BigInteger> list = new ArrayList<>();
+        list.add(BigInteger.ONE);
+        list.add(BigInteger.ONE);
+        list.add(BigInteger.TWO);
+        list.add(new BigInteger("3"));
+        list.add(new BigInteger("5"));
+        assertEquals(list, EulerUtils.generateFibosUpToMax(new BigInteger("100000000000000000000")));
     }
 }
