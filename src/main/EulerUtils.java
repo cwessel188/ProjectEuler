@@ -90,8 +90,8 @@ public class EulerUtils {
 		
 		ArrayList<Integer> primeFactors = new ArrayList<>();
 		
-		// test for factors up to 1/4th the number
-		for (int i = 1; i < n/2+1; i++) {
+		// test for factors up to sqrt the number
+		for (int i = 1; i < Math.sqrt(n); i++) {
 			if (n%i == 0 && primes.contains(i)) {
 	//			System.out.println(i);  // optional print statement for the factors
 				multiFactorCheck(n, i, primeFactors);
@@ -159,5 +159,12 @@ public class EulerUtils {
 
 
 		return returnValues;
+	}
+
+	public static int concat(int leftside, int rightside) {
+		// pad with 0s
+		leftside *= Math.pow(10, (int) Math.log10(rightside)+1);
+
+		return leftside + rightside;
 	}
 }

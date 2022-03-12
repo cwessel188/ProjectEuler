@@ -56,4 +56,19 @@ class EulerUtilsTest {
         list.add(new BigInteger("5"));
         assertEquals(list, EulerUtils.generateFibosUpToMax(new BigInteger("100000000000000000000")));
     }
+
+    @Test
+    void concatTest123456(){
+        assertEquals(123456, EulerUtils.concat(123, 456));
+    }
+
+    @Test
+    void concatTest11111110(){
+        assertEquals(11111110, EulerUtils.concat(111111, 10));
+    }
+
+    @Test
+    void concatTest0(){
+        assertEquals(0, EulerUtils.concat(0, 0));
+    }
 }
